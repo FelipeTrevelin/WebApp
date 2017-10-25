@@ -3,3 +3,13 @@
 ################################################################################
 
 /WebApp/packages
+/WebApp/WebAPI/bin
+/WebApp/WebAPI/obj/Debug
+/WebApp/WebApp/bin
+/WebApp/WebApp/obj/Debug
+/WebApp/WebApp.Core/bin/Debug
+/WebApp/WebApp.Core/obj/Debug
+/WebApp/WebApp.Repository/bin/Debug
+/WebApp/WebApp.Repository/obj/Debug
+/WebApp/WebApp.Service/bin/Debug
+/WebApp/WebApp.Service/obj/Debug

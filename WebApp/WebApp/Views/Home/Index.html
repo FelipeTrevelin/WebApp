@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="basicCrudApp">
+<head>
+    <title></title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+
+    <script src="/Scripts/Libraries/angular.js"></script>
+    <script src="/Scripts/Controllers/HomeController.js"></script>
+    <script src="/Scripts/App.js"></script>
+</head>
+<body ng-controller="HomeController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <!--Sidebar content-->
+                Phone: <input ng-model="search.name">
+                Snippet:<input ng-model="search.snippet">
+                Sort by:
+                <select ng-model="orderProp">
+                    <option value="name">Alphabetical</option>
+                    <option value="age">Newest</option>
+                </select>
+            </div>
+            <div class="col-md-10">
+                <!--Body content-->
+
+                <ul class="phones">
+                    <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+                        <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+                        <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
