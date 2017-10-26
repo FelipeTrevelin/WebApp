@@ -1,8 +1,12 @@
-﻿
+﻿@model  IEnumerable<WebApp.Core.Models.User>
 @{
     ViewBag.Title = "Index";
     Layout = null;
 }
 
-<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <h2>@item.UserName</h2>
+}
+
 

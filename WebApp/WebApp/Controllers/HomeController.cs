@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
 using WebApp.Core.Interfaces;
 
 namespace WebApp.Controllers
@@ -10,6 +11,12 @@ namespace WebApp.Controllers
         {
             this._UserService = UserService;
         }
-       
+
+        public async Task<ActionResult> Index()
+        {
+            var users = await _UserService.GetAllUsers();
+            return View(users);
+        }
+
     }
 }
