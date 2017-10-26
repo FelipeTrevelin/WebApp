@@ -10,10 +10,17 @@ namespace WebApp.Repository.Dal
 {
     public class WebAppContext : DbContext
     {
-        public WebAppContext(string connectionString)
-            : base(connectionString)
+        static string _connection;
+        public WebAppContext()
+    : base(_connection ?? "DefaultConection")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<WebAppContext, Migrations.Configuration>());
+        }
+        public WebAppContext(string connection)
+    : base(connection)
+        {
+            _connection = connection;
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<WebAppContext, Migrations.Configuration>());
         }
         public DbSet<User> User { get; set; }
     }
@@ -23,7 +30,7 @@ namespace WebApp.Repository.Dal
     {
         protected override void Seed(WebAppContext context)
         {
-           // Task.Run(() => Seeds.InitializeData(context)).Wait();
+            // Task.Run(() => Seeds.InitializeData(context)).Wait();
         }
     }
 }
